@@ -15,11 +15,16 @@
   warehouse.initTVManageService("C:\\111\\");
   TVStorageInterface storage = warehouse.getStorage(StorageType.CSV);
   List<TV> storageList = storage.getStorageList();
+  pageContext.setAttribute("storageList", storageList);
   %>
-Welcome from WarehouseContent
-<c:forEach var="item" items="${pageScope.storageList}">
-  <c:out value="${item}" />
-</c:forEach> 
+Welcome from WarehouseContent<br/>
+<table>
+	<c:forEach var="item" items="${storageList}">
+    <tr>
+		  <td><c:out value="${item}" /></td>
+    </tr> 
+   </c:forEach>
+</table>
 
 </body>
 </html>
