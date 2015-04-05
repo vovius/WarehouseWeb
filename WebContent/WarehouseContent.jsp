@@ -13,8 +13,7 @@
   <%
   Warehouse warehouse = new Warehouse();
   warehouse.initTVManageService("C:\\111\\");
-  TVStorageInterface storage = warehouse.getStorage(StorageType.CSV);
-  List<TV> storageList = storage.getStorageList();
+  List<TVStorageInterface> storageList = warehouse.getStorages();
   pageContext.setAttribute("storageList", storageList);
   %>
 Welcome from WarehouseContent<br/>
