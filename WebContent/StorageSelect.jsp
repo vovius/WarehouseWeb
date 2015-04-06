@@ -10,21 +10,19 @@
 <title>Storage selection</title>
 </head>
 <body>
+<%
+  	String storageSelected = request.getParameter("storages");
+	if (storageSelected == null)
+		storageSelected = "CSV";
+  	pageContext.setAttribute("storageSelected", storageSelected);
+%>
+
 <form action="StorageAction.jsp" method="post">
-	 <%
-	 Warehouse warehouse = new Warehouse();
-	 warehouse.initTVManageService("C:\\111\\");
-	 List<TVStorageInterface> storageList = warehouse.getStorages();
-
-	 session.setAttribute("warehouse",warehouse);
-	 pageContext.setAttribute("storageList", storageList);
-	 %>
-
 	The following storage(s) are initialized:<br/>
 	<table>
-	  <c:forEach var="item" items="${storageList}" varStatus="status">
+	  <c:forEach var="item" items="${warehouse.storages}" varStatus="status">
 	    <tr>
-	      <td><input type="radio" name="storages" id="${item.getType()}" value="${item.getType()}" ${status.isFirst() ? 'checked' :''} /><c:out value="${item.getType()}" /></td>
+	      <td><input type="radio" name="storages" id="${item.getType()}" value="${item.getType()}" ${item.getType().toString().equals(storageSelected) ? 'checked' :''} /><c:out value="${item.getType()}" /></td>
 	    </tr> 
 	   </c:forEach>
 	   <tr>
