@@ -12,7 +12,7 @@ import javax.servlet.ServletResponse;
 import com.dio.javamentoring.warehouse.Warehouse;
 
 
-public class StorageFilter implements Filter {
+public class CommonFilter implements Filter {
 	
 	private Warehouse warehouse;
 
@@ -25,10 +25,8 @@ public class StorageFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
-		System.out.println("Before");
 		request.setAttribute("warehouse", warehouse);
 		filterChain.doFilter(request, response);
-		System.out.println("After");
 	}
 
 	@Override
@@ -42,7 +40,6 @@ public class StorageFilter implements Filter {
 			warehouse = null;
 		}
 		
-		System.out.println("warehouse=" + warehouse);
 	}
 
 }

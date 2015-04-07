@@ -10,13 +10,6 @@
 <title>Storage selection</title>
 </head>
 <body>
-<%
-  	String storageSelected = request.getParameter("storages");
-	if (storageSelected == null)
-		storageSelected = "CSV";
-  	pageContext.setAttribute("storageSelected", storageSelected);
-%>
-
 <form action="StorageAction.jsp" method="post">
 	The following storage(s) are initialized:<br/>
 	<table>

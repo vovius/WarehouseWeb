@@ -10,14 +10,6 @@
 <title>Storage Action Selection</title>
 </head>
 <body>
-<%
-String storageSelected = request.getParameter("storages");
-Warehouse warehouse = (Warehouse)session.getAttribute("warehouse");
-TVStorageInterface storage = warehouse.getStorage(StorageType.valueOf(storageSelected));
-List<TV> storageList = storage.getStorageList();
-pageContext.setAttribute("storageList", storageList);
-pageContext.setAttribute("storage", storage);
-%>
 Storage <c:out value="${storage.getType()}" /> has been selected<br/>
 Content:<br/>
 <form action="ActionSelect.jsp" method="post">

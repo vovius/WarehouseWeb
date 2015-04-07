@@ -3,13 +3,33 @@
   <display-name>WarehouseWeb</display-name>
   
   <filter>
-  	<filter-name>StorageFilter</filter-name>
-  	<filter-class>com.dio.WarehouseWeb.StorageFilter</filter-class>
+  	<filter-name>CommonFilter</filter-name>
+  	<filter-class>com.dio.WarehouseWeb.CommonFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>CommonFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>StorageSelectFilter</filter-name>
+    <filter-class>com.dio.WarehouseWeb.StorageSelectFilter</filter-class>
   </filter>
   
   <filter-mapping>
-  	<filter-name>StorageFilter</filter-name>
-  	<url-pattern>/StorageSelect.jsp</url-pattern>
+    <filter-name>StorageSelectFilter</filter-name>
+    <url-pattern>/StorageSelect.jsp</url-pattern>
   </filter-mapping>
+
+  <filter>
+    <filter-name>StorageActionFilter</filter-name>
+    <filter-class>com.dio.WarehouseWeb.StorageActionFilter</filter-class>
+  </filter>
   
+  <filter-mapping>
+    <filter-name>StorageActionFilter</filter-name>
+    <url-pattern>/StorageAction.jsp</url-pattern>
+  </filter-mapping>
+
 </web-app>
