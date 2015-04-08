@@ -18,16 +18,22 @@ Content:<br/>
 	    <tr>
 	      <td><c:out value="${item}" /></td>
 	      <td><input type="submit" name="action" value="Edit" id="${item.getId()}" /></td>
-	      <td><input type="submit" name="action" value="Delete" id="${item.getId()}" /></td>
+	      <td><input type="submit" name="action" value="Delete" id="${item.getId()}" onclick="deleteItem(${item.getId()})" /></td>
 	    </tr> 
 	   </c:forEach>
 	</table>
 	<input type="submit" value="Add new item ->" />
 </form>
 
-<form action="StorageSelect.jsp" method="post">  
+<form action="StorageSelect.jsp" method="post">
   <input type="submit" value="<- Back" />
 </form>
+
+<script type="text/javascript">
+function deleteItem(itemId) {
+	
+} 
+</script>
 
 </body>
 </html>

@@ -14,15 +14,14 @@ public class StorageSelectFilter implements Filter {
 	private String storageSelected;
 
 	@Override
-	public void destroy() {
-		System.out.println("Here");
+	public void destroy() {		
 	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
 
-		request.setAttribute("storageSelected", storageSelected);
+		//request.setAttribute("storageSelected", storageSelected);
 		
 		filterChain.doFilter(request, response);
 	}
