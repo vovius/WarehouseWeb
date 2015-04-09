@@ -10,18 +10,12 @@
 <title>Storage selection</title>
 </head>
 <body>
-<%
-String storageSelected = (String)session.getAttribute("storageSelected");
-if (storageSelected != null) {
-	request.setAttribute("storageSelected", storageSelected);
-}
-%>
 <form action="StorageAction.jsp" method="post">
 	The following storage(s) are initialized:<br/>
 	<table>
-	  <c:forEach var="item" items="${warehouse.storages}" varStatus="status">
+	  <c:forEach var="item" items="${storageWebState.warehouse.storages}" varStatus="status">
 	    <tr>
-	      <td><input type="radio" name="storages" id="${item.getType()}" value="${item.getType()}" ${item.getType().toString().equals(storageSelected) ? 'checked' :''} onclick="storageOnClick(${item.getType()})" /><c:out value="${item.getType()}" /></td>
+	      <td><input type="radio" name="storages" id="${item.type}" value="${item.type}" ${item.type == storageWebState.storageSelected ? 'checked' :''} /><c:out value="${item.type}" /></td>
 	    </tr> 
 	   </c:forEach>
 	   <tr>
@@ -30,13 +24,6 @@ if (storageSelected != null) {
 	</table>
 </form>
 
-<script type="text/javascript">
-function storageOnClick(storageSelected) {
-	<%
-	session.setAttribute("storageSelected",storageSelected);
-	%>
-}
-</script>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.dio.WarehouseWeb;
+package com.dio.warehouse;
 
 import java.io.IOException;
 
@@ -9,10 +9,10 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import com.dio.javamentoring.warehouse.StorageType;
+
 public class StorageSelectFilter implements Filter {
 	
-	private String storageSelected;
-
 	@Override
 	public void destroy() {		
 	}
@@ -21,14 +21,14 @@ public class StorageSelectFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
 
-		//request.setAttribute("storageSelected", storageSelected);
+		request.setAttribute("storageWebState", StorageWebState.getInstance());
 		
 		filterChain.doFilter(request, response);
 	}
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		storageSelected = "TXT";
+		StorageWebState.getInstance().setStorageSelected(StorageType.TXT.name());
 	}
 
 }

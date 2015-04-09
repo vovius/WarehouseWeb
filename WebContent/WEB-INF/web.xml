@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>WarehouseWeb</display-name>
+  <display-name>warehouse</display-name>
   
   <filter>
   	<filter-name>CommonFilter</filter-name>
-  	<filter-class>com.dio.WarehouseWeb.CommonFilter</filter-class>
+  	<filter-class>com.dio.warehouse.CommonFilter</filter-class>
   </filter>
 
   <filter-mapping>
@@ -14,7 +14,7 @@
 
   <filter>
     <filter-name>StorageSelectFilter</filter-name>
-    <filter-class>com.dio.WarehouseWeb.StorageSelectFilter</filter-class>
+    <filter-class>com.dio.warehouse.StorageSelectFilter</filter-class>
   </filter>
   
   <filter-mapping>
@@ -24,7 +24,7 @@
 
   <filter>
     <filter-name>StorageActionFilter</filter-name>
-    <filter-class>com.dio.WarehouseWeb.StorageActionFilter</filter-class>
+    <filter-class>com.dio.warehouse.StorageActionFilter</filter-class>
   </filter>
   
   <filter-mapping>
