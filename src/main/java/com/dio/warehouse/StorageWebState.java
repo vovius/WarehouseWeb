@@ -1,7 +1,7 @@
 package com.dio.warehouse;
 
 import com.dio.javamentoring.warehouse.StorageType;
-import com.dio.javamentoring.warehouse.TVStorageInterface;
+import com.dio.javamentoring.warehouse.TVStorage;
 import com.dio.javamentoring.warehouse.Warehouse;
 
 public class StorageWebState {
@@ -31,7 +31,7 @@ public class StorageWebState {
 	}
 	
 	
-	public TVStorageInterface getCurrentStorage() {
+	public TVStorage getCurrentStorage() {
 		try {
 			return warehouse.getStorage(storageSelected);
 		} catch (Exception e) {
