@@ -22,6 +22,9 @@ public class CommonFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
+		
+		request.setAttribute("storageWebState", StorageWebState.getInstance());
+		
 		filterChain.doFilter(request, response);
 	}
 

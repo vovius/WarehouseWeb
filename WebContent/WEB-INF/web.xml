@@ -32,4 +32,14 @@
     <url-pattern>/StorageAction.jsp</url-pattern>
   </filter-mapping>
 
+  <filter>
+    <filter-name>StorageItemMaintainFilter</filter-name>
+    <filter-class>com.dio.warehouse.StorageItemMaintainFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>StorageItemMaintainFilter</filter-name>
+    <url-pattern>/StorageItemMaintain.jsp</url-pattern>
+  </filter-mapping>
+
 </web-app>

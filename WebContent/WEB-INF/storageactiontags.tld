@@ -11,4 +11,29 @@
        <rtexprvalue>true</rtexprvalue>
     </attribute>
   </tag>
+  <tag>
+    <name>Save</name>
+    <tag-class>com.dio.warehouse.StorageActionSaveTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+       <name>id</name>
+       <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+       <name>brand</name>
+       <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+       <name>diagonal</name>
+       <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+       <name>matrixType</name>
+       <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+       <name>dateMade</name>
+       <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
 </taglib>

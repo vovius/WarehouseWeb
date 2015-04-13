@@ -21,8 +21,6 @@ public class StorageSelectFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain filterChain) throws IOException, ServletException {
 
-		request.setAttribute("storageWebState", StorageWebState.getInstance());
-		
 		filterChain.doFilter(request, response);
 	}
 
