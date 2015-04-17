@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sat" uri="WEB-INF/storageactiontags.tld"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,7 +15,25 @@
 </head>
 <body>
 
-<form action="StorageAction.jsp">
+<c:choose>
+  <c:when test="${'SaveNClose' eq param['action']}">
+    <fmt:parseDate value="${param['dateMade']}" var="parsedDateMade" pattern="MM/dd/yyyy" /> 
+    <jsp:useBean id="item" class="com.dio.javamentoring.warehouse.TV">
+      <jsp:setProperty name="item" property="id" value="${param['id']}"/>
+      <jsp:setProperty name="item" property="brand" value="${param['brand']}"/>
+      <jsp:setProperty name="item" property="diagonal" value="${param['diagonal']}"/>
+      <jsp:setProperty name="item" property="matrixType" value="${param['matrixType']}"/>
+      <jsp:setProperty name="item" property="dateMade" value="${parsedDateMade}"/>
+    </jsp:useBean>
+    <sat:Set item="${item}" />
+    <jsp:forward page="StorageAction.jsp"></jsp:forward>
+  </c:when>
+  <c:when test="${'Close' eq param['action']}">
+    <jsp:forward page="StorageAction.jsp"></jsp:forward>
+  </c:when>
+</c:choose>
+
+<form action="StorageItemMaintain.jsp">
 <table>
   <tr id="id">
     <td>id:</td><td>${param['editId']}<input type="hidden" name="id" value="${param['editId']}" /></td>
@@ -36,7 +57,7 @@
   <tr>
     <td>dateMade:</td>
     <td>
-      <input type="text" value="${item.getDateMadeStr()}" name="dateMade" />
+      <input type="text" value="${item.getDateMadeStr()}" name="dateMade" id="dateMade"/>
       <img src="images/cal.gif" onclick="javascript:NewCssCal('dateMade','mmddyyyy')" style="cursor:pointer"/> 
     </td>
   </tr>

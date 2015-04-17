@@ -94,6 +94,7 @@ public class StorageActionSaveTag extends SimpleTagSupport {
 		StorageWebState instance = StorageWebState.getInstance();
 		//TVManageService service = instance.getWarehouse().getManageService();
 		TVStorage storage = instance.getCurrentStorage(); 
+		
 		storage.setItem(item);
 		
 	}

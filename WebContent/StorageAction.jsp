@@ -10,13 +10,7 @@
   <c:set target="${storageWebState}" property="storageSelected" value="${param['storages']}" />
 </c:if>
  
- <c:choose>
-  <c:when test="${'Delete' eq param['action']}"><sat:Delete id="${param['deleteId']}" /></c:when>
-  <c:when test="${'SaveNClose' eq param['action']}">
-    <fmt:parseDate value="${param['dateMade']}" var="parsedDateMade" pattern="MM/dd/yyyy" /> 
-    <sat:Save id="${param['id']}" brand="${param['brand']}" diagonal="${param['diagonal']}" matrixType="${param['matrixType']}" dateMade="${parsedDateMade}"/>
-  </c:when>
- </c:choose>
+ <c:if test="${'Delete' eq param['action']}"><sat:Delete id="${param['deleteId']}" /></c:if>
  
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -39,7 +33,7 @@ Content:<br/>
    </c:forEach>
 </table>
 	
-<form action="StorageAddItem.jsp" method="get">
+<form action="StorageItemMaintain.jsp" method="get">
 	<input type="submit" value="Add new item ->" />
 </form>	
 

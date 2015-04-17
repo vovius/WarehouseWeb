@@ -36,4 +36,15 @@
        <rtexprvalue>true</rtexprvalue>
     </attribute>
   </tag>
+  
+  <tag>
+    <name>Set</name>
+    <tag-class>com.dio.warehouse.StorageActionCollectItemTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+       <name>item</name>
+       <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
 </taglib>
