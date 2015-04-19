@@ -25,7 +25,7 @@
       <jsp:setProperty name="item" property="matrixType" value="${param['matrixType']}"/>
       <jsp:setProperty name="item" property="dateMade" value="${parsedDateMade}"/>
     </jsp:useBean>
-    <sat:Set item="${item}" />
+    <sat:SetItem item="${item}" />
     <jsp:forward page="StorageAction.jsp"></jsp:forward>
   </c:when>
   <c:when test="${'Close' eq param['action']}">

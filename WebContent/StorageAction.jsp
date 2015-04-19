@@ -10,9 +10,12 @@
   <c:set target="${storageWebState}" property="storageSelected" value="${param['storages']}" />
 </c:if>
  
- <c:if test="${'Delete' eq param['action']}"><sat:Delete id="${param['deleteId']}" /></c:if>
+ <c:choose>
+  <c:when test="${'Delete' eq param['action']}"><sat:Delete id="${param['deleteId']}" /></c:when>
+  <c:when test="${'SaveStorage' eq param['action']}"><sat:SaveStorage /></c:when>
+ </c:choose>
  
-
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,6 +39,11 @@ Content:<br/>
 <form action="StorageItemMaintain.jsp" method="get">
 	<input type="submit" value="Add new item ->" />
 </form>	
+
+<form action="StorageAction.jsp" method="post">
+  <input type="submit" name="action" value="SaveStorage" />
+</form>
+
 
 <form action="StorageSelect.jsp" method="post">
   <input type="submit" value="<- Back" />
