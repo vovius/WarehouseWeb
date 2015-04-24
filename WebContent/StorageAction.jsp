@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="sat" uri="WEB-INF/storageactiontags.tld"%>
 
 <c:if test="${param['storages'] != null}">
@@ -32,6 +32,8 @@ Content:<br/>
       <td><c:out value="${item}" /></td>
       <td><form action="StorageItemMaintain.jsp" method="get"><input type="submit" name="action" value="Edit" id="${item.id}" /><input type="hidden" value="${item.id}" name="editId" /></form></td>
       <td><form action="StorageAction.jsp" method="get"><input type="submit" name="action" value="Delete" id="${item.id}"/><input type="hidden" value="${item.id}" name="deleteId" /></form></td>
+      <td><c:out value="${fn:length(item.description)}" /></td>
+      <td><c:if test="${item.description != null}"><c:out value="${fn:split(item.description,' ').length}" /></c:if></td>
     </tr> 
    </c:forEach>
 </table>

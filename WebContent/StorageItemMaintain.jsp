@@ -24,6 +24,7 @@
       <jsp:setProperty name="item" property="diagonal" value="${param['diagonal']}"/>
       <jsp:setProperty name="item" property="matrixType" value="${param['matrixType']}"/>
       <jsp:setProperty name="item" property="dateMade" value="${parsedDateMade}"/>
+      <jsp:setProperty name="item" property="description" value="${param['description']}"/>
     </jsp:useBean>
     <sat:SetItem item="${item}" />
     <jsp:forward page="StorageAction.jsp"></jsp:forward>
@@ -60,6 +61,9 @@
       <input type="text" value="${item.getDateMadeStr()}" name="dateMade" id="dateMade"/>
       <img src="images/cal.gif" onclick="javascript:NewCssCal('dateMade','mmddyyyy')" style="cursor:pointer"/> 
     </td>
+  </tr>
+  <tr>
+    <td>description:</td><td><input type="text" value="${item.description}" name="description" /></td>
   </tr>
 </table>
 <input type="submit" name="action" value="SaveNClose" />
